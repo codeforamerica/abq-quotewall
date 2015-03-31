@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="viewport" content="width=640">
+	
+	<title>ABQ QuoteWall</title>
+	
+	<style>
+html,body { width: 100%; height: 100%; margin: 0; padding: 0; }
+#quotes { position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-color: lightyellow; overflow: hidden; }
+.quote { width: 400px; background-color: lightblue; border: 1px solid black; padding: 1em; position: absolute; }
+	</style>
+</head>
+
+<body>
+	
+	<div id="quotes">
+	</div>
+
+<script>
+var quotes = [
+"Open data is a redaction in the eyes of city officials and lawyers",
+"Are you exposing the city to a liability if you open up data? (risk averse)",
+"The nail that sticks out gets pounded down",
+"Historically, Albuquerque is a place of 'behind the fence' innovation",
+"Senior Affairs / Family Community Services don't tell the community about their programs because they're afraid they will succeed and they might not be able to handle the intake, making them look bad",
+"ShareNM is a curator of information, a wikipedia, an information commons",
+"Indigenous communities want indigenous solutions",
+"If you want to go fast, go alone, if you want to go far, go with others",
+"10+ re-designs in the last 20 years. Website doesn't support Navajo language. More mobile usage on weekends. How does the community ask for help? What are the key words people are using? What are the nodes that should be shared?",
+"70% of Albuquerque's population is working poor",
+"Your problem may have a legal component",
+"people are fearful to learn about their rights because they see it as an immigration trap",
+"25% of clients have mental illness (bi-polar)",
+"Little Brother mentality",
+"We're not good at telling our own story",
+"Most students are in need of access to non-academic resources (anti-poverty resources, standard referral system.",
+"You don't know what you don't know",
+"How can I learn to sell the rose I bought for a dollar and sell it for $2?",
+"Where do things need to be pushed apart or brought together",
+"State workers don't know the reality of what happening on the ground",
+"Our workers don't want to bite the hand that feeds you",
+"State programs ultimately repurpose the same shitty programs"
+];
+</script>
+
+<script type="text/template" id="quote-template">
+	<div class="quote"><%= quote %></div>
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+<script src="javascripts/app.js"></script>
+
+
+
+</body>
+</html>
+
