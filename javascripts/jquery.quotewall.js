@@ -15,9 +15,10 @@
 			// random left alignment as quotes fall
 			randomAlign: true,
 			// seconds for a quote to reach the bottom (random between min,max)
-			speed: [20, 40],
+			duration: [20, 40],
 			// selector for which children are the quotes in the parent container
 			selector: 'blockquote',
+			// a function to filter only certain quotes from the collection
 			filter: null
 		};
 
@@ -84,6 +85,9 @@
 		animateOne: function(el, options) {
 			options = options || {};
 			
+			// how much of the animation is remaining (1.0 is all of it)
+			var remainingProgress = 1.0;
+			
 			// quote
 			var $el = $(el);
 			var height = $el.outerHeight();
@@ -94,17 +98,26 @@
 			var winHeight = $wrapper.height();
 			var winWidth = $wrapper.width();
 			
-			var top = (options.top !== undefined) ? options.top : -height;
+			// start at custom top position?
+			var top = -height;
+			if (options.top !== undefined) {
+				top = options.top;
+				remainingProgress = 1.0 - (parseFloat(options.top) / winHeight);
+			}
+			
+			// start at custom left position?
 			var left = 0;
 			if (options.left !== undefined) {
 				left = options.left;
 			} else if (this.options.randomAlign) {
 				left = _.random(0, winWidth - width);
 			}
-			var speed = this.options.speed;
-			var speedMin = 1000 * speed[0];
-			var speedMax = 1000 * speed[1];
-			var duration = _.random(speedMin, speedMax);
+			
+			var duration = this.options.duration;
+			var durationMin = 1000 * duration[0];
+			var durationMax = 1000 * duration[1];
+			duration = _.random(durationMin, durationMax);
+			duration *= remainingProgress;
 			var self = this;
 			
 			// initial position
@@ -179,5 +192,8 @@
 			}
 		});
 	};
+	
+	// expose defaults to public namespace
+	$.fn[pluginName].defaults = defaults;
 
 })( jQuery, window, document );

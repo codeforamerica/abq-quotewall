@@ -14,6 +14,7 @@ html,body { width: 100%; height: 100%; margin: 0; padding: 0; }
 #quotes { position: absolute; top: 0; bottom: 0; left: 0; right: 0; overflow: hidden; }
 blockquote {
 	background-color: #f9f9f9;
+	border: 1px solid #ccc;
 	box-shadow: 0 0 2px rgba(0,0,0,0.5);
 	font-size: 18px;
 	font-style: italic;
@@ -25,7 +26,7 @@ blockquote {
 	width: 400px;
 }
 blockquote:nth-child(odd) {
-	border-left: 10px solid #ccc;
+	border-left-width: 10px;
 }
 blockquote:before {
 	color: #ccc;
@@ -34,6 +35,10 @@ blockquote:before {
 	font-size: 4em;
 	line-height: 1;
 	margin: -10px 10px -40px -12px;
+}
+blockquote:hover {
+	z-index: 2;
+	border-color: #999;
 }
 blockquote cite {
 	color: #ccc;
@@ -57,7 +62,7 @@ form {
 	<div id="quotes">
 		{% for quote in site.data.quotes %}
 			<blockquote data-category="{{ quote.category | jsonify | escape }}">{{ quote.content }}
-				<cite>City Official</cite>
+				<cite>Attribution Here</cite>
 			</blockquote>
 		{% endfor %}
 	</div>
