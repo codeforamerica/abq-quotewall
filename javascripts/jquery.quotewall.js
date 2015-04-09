@@ -4,7 +4,7 @@
 	var pluginName = "quotewall",
 		defaults = {
 			// milliseconds delay between each quote beginning to fall
-			interval: 1000,
+			interval: 2000,
 			// seconds for a quote to reach the bottom (random between min,max)
 			speed: [20, 40]
 		};
@@ -92,6 +92,7 @@
 		
 		start: function() {
 			var next = $.proxy(this.next, this);
+			next();
 			this.timer = window.setInterval(next, this.options.interval);
 		},
 		
