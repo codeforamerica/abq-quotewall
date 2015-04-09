@@ -1,12 +1,24 @@
 ;(function ( $, window, document, undefined ) {
+	"use strict";
+	
+	/* TODO:
+	remove quotes from this.going array when they finish
+	*/
 
 	// Create the defaults once
 	var pluginName = "quotewall",
 		defaults = {
 			// milliseconds delay between each quote beginning to fall
 			interval: 2000,
+			// pause an individual quote on mouse hover
+			pauseOnHover: true,
+			// random left alignment as quotes fall
+			randomAlign: true,
 			// seconds for a quote to reach the bottom (random between min,max)
-			speed: [20, 40]
+			speed: [20, 40],
+			// selector for which children are the quotes in the parent container
+			selector: 'blockquote',
+			filter: null
 		};
 
 	// The actual plugin constructor
@@ -23,23 +35,41 @@
 	Quotewall.prototype = {
 
 		init: function() {
-			// Place initialization logic here
-			// You already have access to the DOM element and
-			// the options via the instance, e.g. this.element
-			// and this.options
-			// you can add more functions like the one below and
-			// call them like so: this.yourOtherFunction(this.element, this.options).
-			
 			// queue of quotes to animate
-			var $element = $(this.element);
-			var $children = $element.children();
+			this.queue = [];
+			// list of quotes that are currently in motion
+			this.going = [];
 			
-			// TODO: filter
+			if (this.options.pauseOnHover) {
+				var self = this;
+				$(this.element).on('mouseenter.'+pluginName, this.options.selector, function() {
+					self.pause(this);
+				});
+				$(this.element).on('mouseleave.'+pluginName, this.options.selector, function() {
+					self.resume(this);
+				});
+			}
 			
-			this.hideAll($children);
+			// go!
+			this.restart();
+		},
+		
+		restart: function() {
+			// stop and clear anthing already moving
+			this.stop();
 			
-			this.queue = $children.get();
+			var $all = $(this.element).children(this.options.selector);
 			
+			// filter
+			var filter = this.options.filter;
+			if (filter) {
+				var $filtered = $all.filter(filter);
+				this.queue = $filtered.get();
+			} else {
+				this.queue = $all.get();
+			}
+			
+			this.hideAll($all);
 			this.start();
 			
 		},
@@ -51,17 +81,26 @@
 			});
 		},
 		
-		animateOne: function(el, index) {
+		animateOne: function(el, options) {
+			options = options || {};
+			
+			// quote
 			var $el = $(el);
-			var $wrapper = $(this.element);
 			var height = $el.outerHeight();
 			var width = $el.outerWidth();
+			
+			// wrapper
+			var $wrapper = $(this.element);
 			var winHeight = $wrapper.height();
 			var winWidth = $wrapper.width();
-			var minHeight = 0 - height;
-			var maxHeight = winHeight;
-			var top = -height;
-			var left = _.random(0, winWidth - width);
+			
+			var top = (options.top !== undefined) ? options.top : -height;
+			var left = 0;
+			if (options.left !== undefined) {
+				left = options.left;
+			} else if (this.options.randomAlign) {
+				left = _.random(0, winWidth - width);
+			}
 			var speed = this.options.speed;
 			var speedMin = 1000 * speed[0];
 			var speedMax = 1000 * speed[1];
@@ -76,7 +115,7 @@
 			
 			// animate
 			$el.animate({
-				top: maxHeight
+				top: winHeight
 			}, {
 				duration: duration,
 				easing: 'linear',
@@ -90,6 +129,18 @@
 			this.queue.push(el);
 		},
 		
+		pause: function(el) {
+			$(el).stop(true);
+		},
+		
+		resume: function(el) {
+			var options = {
+				left: $(el).css('left'),
+				top: $(el).css('top')
+			};
+			this.animateOne(el, options);
+		},
+		
 		start: function() {
 			var next = $.proxy(this.next, this);
 			next();
@@ -97,16 +148,22 @@
 		},
 		
 		stop: function() {
-			console.log('stopped');
+			// prevent more animations
 			if (this.timer) {
 				this.timer = window.clearInterval(this.timer);
 				this.timer = null;
+			}
+			// stop the animations that are in progress
+			while (this.going.length) {
+				var el = this.going.pop();
+				$(el).stop(true, true);
 			}
 		},
 		
 		next: function() {
 			var el = this.queue.shift();
 			if (el) {
+				this.going.push(el);
 				this.animateOne(el);
 			}
 		}
@@ -116,9 +173,9 @@
 	// preventing against multiple instantiations
 	$.fn[pluginName] = function ( options ) {
 		return this.each(function () {
-			if (!$.data(this, "plugin_" + pluginName)) {
-				$.data(this, "plugin_" + pluginName,
-				new Quotewall( this, options ));
+			if (!$.data(this, pluginName)) {
+				var plugin = new Quotewall(this, options);
+				$.data(this, pluginName, plugin);
 			}
 		});
 	};

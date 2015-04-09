@@ -44,6 +44,11 @@ blockquote cite {
 blockquote cite:before {
 	content: "\2014 \2009";
 }
+form {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
 	</style>
 </head>
 
@@ -56,6 +61,14 @@ blockquote cite:before {
 			</blockquote>
 		{% endfor %}
 	</div>
+	
+	<form>
+		<select id="categories">
+			<option value="">All Categories</option>
+			<option>Narrative</option>
+			<option>Education</option>
+		</select>
+	</form>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
@@ -63,8 +76,23 @@ blockquote cite:before {
 
 <script>
 jQuery(document).ready(function($) {
-	$('#quotes').quotewall({
-		interval: 5000
+	var $categories = $('#categories');
+	var $quotes = $('#quotes');
+	$quotes.quotewall({
+		interval: 5000,
+		filter: function(index, el) {
+			var category = $categories.val();
+			if (category) {
+				var categories = $(el).data('category');
+				var valid = ($.inArray(category, categories) > -1);
+				return valid;
+			} else {
+				return true;
+			}
+		}
+	});
+	$categories.on('change', function(e) {
+		$quotes.data('quotewall').restart();
 	});
 });
 </script>
