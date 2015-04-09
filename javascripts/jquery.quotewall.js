@@ -110,13 +110,13 @@
 			if (options.left !== undefined) {
 				left = options.left;
 			} else if (this.options.randomAlign) {
-				left = _.random(0, winWidth - width);
+				left = random(0, winWidth - width);
 			}
 			
 			var duration = this.options.duration;
 			var durationMin = 1000 * duration[0];
 			var durationMax = 1000 * duration[1];
-			duration = _.random(durationMin, durationMax);
+			duration = random(durationMin, durationMax);
 			duration *= remainingProgress;
 			var self = this;
 			
@@ -195,5 +195,11 @@
 	
 	// expose defaults to public namespace
 	$.fn[pluginName].defaults = defaults;
+	
+	// Return a random integer between min and max (inclusive).
+	// http://underscorejs.org/docs/underscore.html#section-158
+	function random(min, max) {
+		return min + Math.floor(Math.random() * (max - min + 1));
+	}
 
 })( jQuery, window, document );
