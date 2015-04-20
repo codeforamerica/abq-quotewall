@@ -19,7 +19,9 @@
 			// selector for which children are the quotes in the parent container
 			selector: 'blockquote',
 			// a function to filter only certain quotes from the collection
-			filter: null
+			filter: null,
+			// optionally drop the quotes in a random order
+			randomize: false
 		};
 
 	// The actual plugin constructor
@@ -63,12 +65,21 @@
 			
 			// filter
 			var filter = this.options.filter;
+			var queue = [];
 			if (filter) {
 				var $filtered = $all.filter(filter);
-				this.queue = $filtered.get();
+				queue = $filtered.get();
 			} else {
-				this.queue = $all.get();
+				queue = $all.get();
 			}
+			
+			// randomize
+			if (this.options.randomize) {
+				shuffle(queue);
+			}
+			
+			// save the queue
+			this.queue = queue;
 			
 			this.hideAll($all);
 			this.start();
@@ -200,6 +211,13 @@
 	// http://underscorejs.org/docs/underscore.html#section-158
 	function random(min, max) {
 		return min + Math.floor(Math.random() * (max - min + 1));
+	}
+	
+	// shuffle an array in place
+	// http://stackoverflow.com/a/6274381
+	function shuffle(o) {
+		for (var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+		return o;
 	}
 
 })( jQuery, window, document );

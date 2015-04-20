@@ -62,7 +62,7 @@ form {
 	<div id="quotes">
 		{% for quote in site.data.quotes %}
 			<blockquote data-category="{{ quote.category | jsonify | escape }}">{{ quote.content }}
-				<cite>Attribution Here</cite>
+				<cite>{% if quote.attribution %}{{ quote.attribution }}{% else %}Unknown{% endif %}</cite>
 			</blockquote>
 		{% endfor %}
 	</div>
@@ -93,7 +93,8 @@ jQuery(document).ready(function($) {
 			} else {
 				return true;
 			}
-		}
+		},
+		randomize: true
 	});
 	$categories.on('change', function(e) {
 		$quotes.data('quotewall').restart();
