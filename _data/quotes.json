@@ -1,203 +1,253 @@
 [
 	{
+		"id": "week1-01",
 		"content": "Open data is a redaction in the eyes of city officials and lawyers",
 		"attribution": "City Official",
 		"category": ["Narrative", "Education"]
 	},
 	{
+		"id": "week1-02",
 		"content": "Are you exposing the city to a liability if you open up data?",
 		"attribution": "City Official"
 
 	},
 	{
+		"id": "week1-03",
 		"content": "The nail that sticks out gets pounded down",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week1-04",
 		"content": "Historically, Albuquerque is a place of 'behind the fence' innovation",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week1-05",
 		"content": "ShareNM is a curator of information, a wikipedia, an information commons",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week1-06",
 		"content": "Indigenous communities want indigenous solutions",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week1-07",
 		"content": "If you want to go fast, go alone, if you want to go far, go with others",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week1-08",
 		"content": "10+ re-designs in the last 20 years. Website doesn't support Navajo language. More mobile usage on weekends. How does the community ask for help? What are the key words people are using? What are the nodes that should be shared?",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week1-09",
 		"content": "70% of Albuquerque's population is working poor",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week1-10",
 		"content": "Your problem may have a legal component",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week1-11",
 		"content": "People are fearful to learn about their rights because they see it as an immigration trap",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week1-12",
 		"content": "25% of clients have mental illness (bi-polar)",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week1-13",
 		"content": "Little Brother mentality",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week1-14",
 		"content": "We're not good at telling our own story",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week1-15",
 		"content": "Most students are in need of access to non-academic resources (anti-poverty resources, standard referral system).",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week1-16",
 		"content": "You don't know what you don't know",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week1-17",
 		"content": "How can I learn to sell the rose I bought for a dollar and sell it for $2?",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week1-18",
 		"content": "Where do things need to be pushed apart or brought together",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week1-19",
 		"content": "State workers don't know the reality of what happening on the ground",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week1-20",
 		"content": "Our workers don't want to bite the hand that feeds you",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week1-21",
 		"content": "For many residents, capital is there but access to it is not. There are no mentorship structures that allow residents to meaningfully engage with systems.",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week2-01",
 		"content": "Even though they serve the same client, people view themselves based on where their money comes from.",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week2-02",
 		"content": "These people aren't homeless honey. They're working poor.",
 		"attribution": "Non-profit organization leader"
 	},
 	{
+		"id": "week2-03",
 		"content": "Financial literacy is not a requirement for NM highschools.",
 		"attribution": "Non-profit organization leader"
 	},
 	{
+		"id": "week2-04",
 		"content": "Little people are not bottom lines.",
 		"attribution": "Non-profit organization leader"
 	},
 	{
+		"id": "week2-05",
 		"content": "Budgeting is different for everybody. It is an empowering thing, not a punative thing.",
 		"attribution": "Non-profit organization leader"
 	},
 	{
+		"id": "week2-06",
 		"content": "Mentorship is everything. Training doesn't work.",
 		"attribution": "Non-profit organization leader"
 	},
 	{
+		"id": "week2-07",
 		"content": "There's no equal treatment for unequals.",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week2-08",
 		"content": "An artist and an immigrant are both entrepreneurs.",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week2-09",
 		"content": "Entrepreneurship is cultural not monetary.",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week2-10",
 		"content": "In the absense of a good mentric, you get a bad metric.",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week2-11",
 		"content": "Labs are a fear-based community.",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week3-01",
 		"content": "Tent City is emblematic of the fact that there are no other options for residents.",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week3-02",
 		"content": "You ask questions, you get answers, but do you take action?",
 		"attribution": "City Official"
 	},
 	{
+		"id": "week3-03",
 		"content": "If you need the resources, you can access them.",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week3-04",
 		"content": "You're just connecting rich people to rich people.",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week3-05",
 		"content": "Departments don't share data because they don't want to make their officials look bad.",
 		"attribution": "Acamedic Leader"
 	},
 	{
+		"id": "week3-06",
 		"content": "People will share data if they see an ROI.",
 		"attribution": "Acamedic Leader"
 	},
 	{
+		"id": "week3-07",
 		"content": "It's the colonialism of it all.",
 		"attribution": "Acamedic Leader"
 	},
 	{
+		"id": "week3-08",
 		"content": "It is all about local capacity building, learning what the capacity is, and how to mobilize that capacity.",
 		"attribution": "Acamedic Leader"
 	},
 	{
+		"id": "week3-09",
 		"content": "The client is deperate. They're going through the phonebooks hoping to talk to anyone who will speak with them.",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week3-10",
 		"content": "Do I want to give the client a list of all 12 services or just the best one?",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week3-11",
 		"content": "Asian communities don't trust non-profits. They ask, why are you free?",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week3-12",
 		"content": "We have to fight hard to get services.",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week3-13",
 		"content": "There isn't a lot of social mobility for our families because resources aren't there.",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week3-14",
 		"content": "Its about who you know.",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week3-15",
 		"content": "It's hard to engage Asian families.",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week3-16",
 		"content": "This is coming from the city or people who should know better.",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week3-17",
 		"content": "Asians are the model minority.",
 		"attribution": "Community Leader"
 	},
 	{
+		"id": "week3-18",
 		"content": "You have to carry your documents.",
 		"attribution": "Community Leader"
 	},
