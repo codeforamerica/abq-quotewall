@@ -15,7 +15,7 @@
 			// random left alignment as quotes fall
 			randomAlign: true,
 			// seconds for a quote to reach the bottom (random between min,max)
-			duration: [20, 40],
+			duration: [15, 40],
 			// selector for which children are the quotes in the parent container
 			selector: 'blockquote',
 			// a function to filter only certain quotes from the collection

@@ -13,9 +13,10 @@
 html,body { width: 100%; height: 100%; margin: 0; padding: 0; }
 #quotes { position: absolute; top: 0; bottom: 0; left: 0; right: 0; overflow: hidden; }
 blockquote {
-	background-color: #f9f9f9;
-	border: 1px solid #ccc;
+	background-color: #333;
+	border: 1px solid #666;
 	box-shadow: 0 0 2px rgba(0,0,0,0.5);
+	color: #fff;
 	font-size: 18px;
 	font-style: italic;
 	line-height: 1.3;
@@ -26,10 +27,10 @@ blockquote {
 	width: 400px;
 }
 blockquote:nth-child(odd) {
-	border-left-width: 10px;
+	/* border-left-width: 10px; */
 }
 blockquote:before {
-	color: #ccc;
+	color: #fff;
 	content: open-quote;
 	float: left;
 	font-size: 4em;
@@ -41,7 +42,6 @@ blockquote:hover {
 	border-color: #999;
 }
 blockquote cite {
-	color: #ccc;
 	display: block;
 	font-size: 16px;
 	margin-top: 5px;
@@ -49,6 +49,10 @@ blockquote cite {
 blockquote cite:before {
 	content: "\2014 \2009";
 }
+blockquote[data-category*=Workforce] { background-color: rgb(0, 86, 142); }
+blockquote[data-category*=Education] { background-color: rgb(230, 16, 0); }
+blockquote[data-category*=Inclusion] { background-color: rgb(0, 170, 119); }
+blockquote[data-category*=Hardship] { background-color: rgb(0, 144, 169); }
 form {
 	position: absolute;
 	bottom: 0;
@@ -61,7 +65,7 @@ form {
 	
 	<div id="quotes">
 		{% for quote in site.data.quotes %}
-			<blockquote data-category="{{ quote.category | jsonify | escape }}">{{ quote.content }}
+			<blockquote data-category="{{ quote.category }}">{{ quote.content }}
 				<cite>{% if quote.attribution %}{{ quote.attribution }}{% else %}Unknown{% endif %}</cite>
 			</blockquote>
 		{% endfor %}
@@ -69,9 +73,11 @@ form {
 	
 	<form>
 		<select id="categories">
-			<option value="">All Categories</option>
-			<option>Narrative</option>
+			<option value="">All Themes</option>
+			<option>Workforce</option>
 			<option>Education</option>
+			<option>Inclusion</option>
+			<option>Hardship</option>
 		</select>
 	</form>
 
@@ -87,8 +93,7 @@ jQuery(document).ready(function($) {
 		filter: function(index, el) {
 			var category = $categories.val();
 			if (category) {
-				var categories = $(el).data('category');
-				var valid = ($.inArray(category, categories) > -1);
+				var valid = ($(el).data('category') == category);
 				return valid;
 			} else {
 				return true;
